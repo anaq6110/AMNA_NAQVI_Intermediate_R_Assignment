@@ -156,3 +156,20 @@ quad_solve(0, 12, 3) # error
 quad_solve(56, 3, 14) # zero real solutions
 quad_solve(1, 2, 1) # one real solution
 quad_solve(-13, -14, 16) # two real solutions
+
+# 8a) Collatz steps
+n <- 37
+steps <- 0
+seqnc <- n
+
+while(n != 1) {
+  if (n %% 2 == 0) {
+    n <- n / 2
+  } else {
+    n <- 3 * n + 1
+  }
+  seqnc <- c(seqnc, n)
+  steps <- steps + 1
+}
+steps
+seqnc
