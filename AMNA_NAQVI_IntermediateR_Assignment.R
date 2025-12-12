@@ -115,3 +115,21 @@ roll_dice <- function(d = 20, num_rolls = 1) {
 }
 
 roll_dice(d = 10, num_rolls = 2) #testing function
+
+# 7a) quadratic formula - num_sols(a, b, c)
+
+num_sols <- function(a, b, c) {
+  disc <- b^2 - 4*a*c
+  if (disc < 0) {
+    return("Quadratic has no real solutions.")
+  } else if (disc == 0) {
+    return("Quadratic has one real solution.")
+  } else {
+    return("Quadratic has two real solutions")
+  }
+}
+
+#testing
+num_sols(4, 3, 2) # no real sol
+num_sols(1, 2, 1) # one real sol
+num_sols(-9, -2, 3) # two real sol
