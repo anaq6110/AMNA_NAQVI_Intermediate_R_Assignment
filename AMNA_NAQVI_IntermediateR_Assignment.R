@@ -7,3 +7,7 @@
 install.packages("ggplot2movies")
 library(ggplot2movies)
 movies <- ggplot2movies::movies
+
+# 2) inspecting movies
+str(movies)
+class(movies)
