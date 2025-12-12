@@ -83,3 +83,12 @@ movies_final |>
        y = "Film Rating") +
   theme_minimal() +
   facet_wrap(~ mpaa)
+
+############ PART 2 - FUNCTIONS, ITERATION, AND DEBUGGING ############
+# 6a) roll_dice & sample
+
+roll_dice <- function(d = 20, num_rolls = 1) {
+  sample(1:d, size = num_rolls, replace = TRUE)
+}
+
+roll_dice(d = 10, num_rolls = 2)
