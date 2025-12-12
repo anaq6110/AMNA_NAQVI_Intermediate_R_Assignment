@@ -46,3 +46,29 @@ high3 <- head(genre_summary, 3)
 #shows top 3 genres from high to low: Drama, Animation, Documentary
 low3 <- tail(genre_summary, 3) 
 #shows lowest 3 genres from high to low: Romance, Comedy, Action
+
+# 5a) data visualization
+
+# first type
+movies_final |>
+  ggplot(aes(x = year, y = rating)) +
+  geom_point() +
+  labs(title = "Average Film Rating by Year", x = "Year Released", y = 
+         "Film Rating") +
+  theme_minimal()
+
+# second type
+movies_final |>
+  ggplot(aes(x = year, y = rating)) +
+  geom_area() +
+  labs(title = "Average Film Rating by Year", x = "Year Released", y = 
+         "Film Rating") +
+  theme_minimal()
+
+# third type
+movies_final |>
+  ggplot(aes(x = year, y = rating)) +
+  geom_count() +
+  labs(title = "Average Film Rating by Year", x = "Year Released", y = 
+         "Film Rating") +
+  theme_minimal()
