@@ -23,3 +23,9 @@ movies_final <- ggplot2movies::movies %>%
   filter(!is.na(budget),
          !is.na(mpaa), mpaa != "") #gets rid of ratings that say 'NA' or ''
 
+# 4a) creating 'genre' column
+movies_final <- movies_final %>% 
+  pivot_longer(Action:Short, names_to = "genre", values_to = "flag") %>%
+  filter(flag == 1) %>%
+  group_by(across(-c(genre, flag))) %>%
+  summarise(genre = paste(genre, collapse = ", "), .groups = "drop")
