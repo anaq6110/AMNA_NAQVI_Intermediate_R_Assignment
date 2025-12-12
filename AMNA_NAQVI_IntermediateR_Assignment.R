@@ -92,3 +92,26 @@ roll_dice <- function(d = 20, num_rolls = 1) {
 }
 
 roll_dice(d = 10, num_rolls = 2)
+
+# 6b) modified roll_dice
+
+roll_dice <- function(d = 20, num_rolls = 1) {
+  library(glue)
+  if (!is.numeric(d) || d <= 0 || d %% 1 != 0) {
+    stop("'d' must be a positive integer")
+  }
+  if (!is.numeric(num_rolls) || num_rolls <= 0 || num_rolls %% 1 != 0) {
+    stop("'num_rolls' must be a positive integer")
+  }
+  dice_results <- sample(seq_len(d), size = num_rolls, replace = TRUE)
+  
+  if(num_rolls == 1) {
+    print(glue("You rolled a d{d} die: {dice_results}"))
+  } else {
+    print(glue("You rolled {num_rolls} d{d} dice: {paste(dice_results, collapse = ', ')}.  ",
+               "Sum: {sum(dice_results)}."
+    ))
+  }
+}
+
+roll_dice(d = 10, num_rolls = 2) #testing function
