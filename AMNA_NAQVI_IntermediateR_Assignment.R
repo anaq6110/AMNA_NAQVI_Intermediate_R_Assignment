@@ -173,3 +173,30 @@ while(n != 1) {
 }
 steps
 seqnc
+
+# 8b) function - collatz_steps(n)
+collatz_steps <- function(n) {
+  if (!is.numeric(n) || n <= 0 || n %% 1 != 0) {
+    return("n must be positive.")
+  }
+  steps <- 0
+  seqnc <- n
+  
+  while(n != 1) {
+    if (n %% 2 == 0) {
+      n <- n / 2
+    } else {
+      n <- 3 * n + 1
+    }
+    seqnc <- c(seqnc, n)
+    steps <- steps + 1
+  }
+  return(list(
+    total_steps = steps,
+    seqnc = seqnc
+  ))
+}
+
+result <- collatz_steps(37)
+result$total_steps
+result$seqnc
