@@ -29,3 +29,20 @@ movies_final <- movies_final %>%
   filter(flag == 1) %>%
   group_by(across(-c(genre, flag))) %>%
   summarise(genre = paste(genre, collapse = ", "), .groups = "drop")
+
+# 4b) omitting missing genres
+movies_genre <- movies_final %>%
+  filter(genre != "") #gets rid of any blanks under genre
+
+movies_genre <- movies_genre %>%
+  tidyr::separate_longer_delim(genre, delim = ", ")
+
+genre_summary <- movies_genre %>%
+  group_by(genre) %>%
+  summarise(mean_rating = mean(rating, na.rm = TRUE)) %>%
+  arrange(desc(mean_rating))
+
+high3 <- head(genre_summary, 3) 
+#shows top 3 genres from high to low: Drama, Animation, Documentary
+low3 <- tail(genre_summary, 3) 
+#shows lowest 3 genres from high to low: Romance, Comedy, Action
