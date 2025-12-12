@@ -211,3 +211,6 @@ scores <- data.frame(
 rownames(scores) <- c("Alice", "Bob", "Charlie", "David", "Eva")
 
 apply(scores, 1, mean) #ran this while including rownames(scores)
+
+# 9b) finding avg scores for each subject
+apply(scores, 1, mean) # simply ran without including rownames(scores)
