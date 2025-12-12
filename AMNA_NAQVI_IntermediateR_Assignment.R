@@ -234,3 +234,27 @@ y <- c(4, 5, NA)
 z <- c(6, 7, 8)
 mean(1:8) # Correct mean
 average_all(x, y, z) # Computed mean
+
+# debugging function
+debug(average_all)
+average_all(x, y, z)
+## bug is found in mean_val <- total / n
+
+# correct version
+average_all <- function(x, y, z) {
+  combined <- c(x, y, z)
+  clean <- na.omit(combined)
+  
+  if (length(clean) == 0)
+    stop("No valid numbers!")
+  
+  total <- sum(clean)
+  n <- length(clean) 
+  mean_val <- total / n
+  return(mean_val)
+}
+
+# testing correct version
+average_all(x, y, z)
+mean(1:8)
+# computed mean and correct mean match up
