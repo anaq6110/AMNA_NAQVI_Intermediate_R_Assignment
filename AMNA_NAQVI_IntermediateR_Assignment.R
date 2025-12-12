@@ -133,3 +133,26 @@ num_sols <- function(a, b, c) {
 num_sols(4, 3, 2) # no real sol
 num_sols(1, 2, 1) # one real sol
 num_sols(-9, -2, 3) # two real sol
+
+# 7b) quadratic formula - quad_solve(a, b, c)
+quad_solve <- function(a, b, c) {
+  if (a == 0) {
+    return("Error")
+  }
+  disc <- b^2 - 4*a*c
+  if (disc < 0) {
+    return("Zero real solutions exist.")
+  } else if (disc == 0) {x <- -b/(2*a)
+  return(paste("One real solution exists", x))
+  } else {
+    sqrt_disc <- sqrt(disc)
+    x1 <- (-b + sqrt_disc) / (2*a)
+    x2 <- (-b - sqrt_disc) / (2*a)
+    return(paste("Two real solutions exist", x1, "and", x2))
+  }
+}
+
+quad_solve(0, 12, 3) # error
+quad_solve(56, 3, 14) # zero real solutions
+quad_solve(1, 2, 1) # one real solution
+quad_solve(-13, -14, 16) # two real solutions
