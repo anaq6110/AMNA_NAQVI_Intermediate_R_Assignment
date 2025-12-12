@@ -17,3 +17,9 @@ class(movies)
 library(tidyverse)
 library(purrr)
 library(dplyr)
+## getting rid of votes, r1:r10, rows w missing budgets and mpaa ratings 
+movies_final <- ggplot2movies::movies %>%
+  select(-votes, -(r1:r10)) %>%
+  filter(!is.na(budget),
+         !is.na(mpaa), mpaa != "") #gets rid of ratings that say 'NA' or ''
+
