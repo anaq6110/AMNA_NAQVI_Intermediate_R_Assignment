@@ -11,3 +11,9 @@ movies <- ggplot2movies::movies
 # 2) inspecting movies
 str(movies)
 class(movies)
+
+# 3) omitting votes, r1:r10 and rows w missing budgets and mpaa ratings
+## loading necessary packages
+library(tidyverse)
+library(purrr)
+library(dplyr)
