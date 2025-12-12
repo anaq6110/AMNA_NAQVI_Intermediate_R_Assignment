@@ -200,3 +200,14 @@ collatz_steps <- function(n) {
 result <- collatz_steps(37)
 result$total_steps
 result$seqnc
+
+# 9a) finding avg score for each participant
+scores <- data.frame(
+  Math = c(88, 92, 76, 81, 95),
+  English = c(91, 85, 79, 88, 90),
+  History = c(84, 89, 90, 75, 92),
+  Science = c(90, 94, 80, 85, 88)
+)
+rownames(scores) <- c("Alice", "Bob", "Charlie", "David", "Eva")
+
+apply(scores, 1, mean) #ran this while including rownames(scores)
