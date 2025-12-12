@@ -72,3 +72,14 @@ movies_final |>
   labs(title = "Average Film Rating by Year", x = "Year Released", y = 
          "Film Rating") +
   theme_minimal()
+# 5b) extending third type of plot for determining relationship btw rating 
+# and year across mpaa ratings
+movies_final |>
+  ggplot(aes(x = year, y = rating)) +
+  geom_count() +
+  geom_smooth(se = FALSE, color = "lightblue") +
+  labs(title = "Average Film Rating by Year Across MPAA Ratings", 
+       x = "Year Released", 
+       y = "Film Rating") +
+  theme_minimal() +
+  facet_wrap(~ mpaa)
