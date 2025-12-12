@@ -214,3 +214,23 @@ apply(scores, 1, mean) #ran this while including rownames(scores)
 
 # 9b) finding avg scores for each subject
 apply(scores, 1, mean) # simply ran without including rownames(scores)
+
+# 10) debugging time
+# here's the function
+average_all <- function(x, y, z) {
+  combined <- c(x, y, z)
+  clean <- na.omit(combined)
+  # Check for empty input
+  if (length(clean) == 0)
+    stop("No valid numbers!")
+  total <- sum(clean)
+  n <- length(x + y + z) # i don't think R liked this code here, messed up our n
+  mean_val <- total / n
+  return(mean_val)
+}
+# Try this to see if it works:
+x <- c(1, 2, 3, NA)
+y <- c(4, 5, NA)
+z <- c(6, 7, 8)
+mean(1:8) # Correct mean
+average_all(x, y, z) # Computed mean
